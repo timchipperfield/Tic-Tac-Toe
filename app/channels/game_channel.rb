@@ -1,12 +1,14 @@
 class GameChannel < ApplicationCable::Channel
   def subscribed
+    Seek.create(uuid) unless REDIS.smembers("seeks").include? uuid
     stream_from "player_#{uuid}"
-    WaitList.create(uuid)
-    # stream_from "some_channel"
   end
 
   def unsubscribed
-    WaitList.remove(uuid)
     # Any cleanup needed when channel is unsubscribed
+  end
+
+  def move(data)
+    Game.move(uuid, data)
   end
 end
