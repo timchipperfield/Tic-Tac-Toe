@@ -1,12 +1,17 @@
+.game-body {
+  -webkit-align-content: center;
+  align-content: center;
+}
+
 table {
-  width: 25%;
-  height: 25%;
+  width: 50%;
+  height: 50%;
   border-collapse: collapse;
-  margin: auto;
 }
 td {
   width: 33.333%;
-  border: 4px solid #551A8B;
+  border: 6px solid #222;
+  object-fit: contain;
 }
 td::after {
   content: '';
@@ -14,7 +19,7 @@ td::after {
   margin-top: 100%;
 }
 td {
-  border: 4px solid #551A8B;
+  border: 6px solid #222;
 }
 td:first-of-type {
   border-left-color: transparent;
@@ -29,4 +34,12 @@ td:nth-of-type(3) {
 }
 tr:nth-of-type(3) td {
   border-bottom-color: transparent;
+}
+
+.move-button {
+  display: block;
+  height: 100% !important;
+  width: 100% !important;
+  background-color: green;
+  color: white;
 }

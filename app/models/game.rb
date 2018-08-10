@@ -8,4 +8,10 @@ class Game
     REDIS.set("opponent_for:#{x}", o)
     REDIS.set("opponent_for:#{o}", x)
   end
+
+  def self.move
+    # send board change to opponent and player
+    # ActionCable.server.broadcast "player_#{x}", {action: "move", move data here}
+    # ActionCable.server.broadcast "player_#{o}", {action: "move", msg: move data here}
+  end
 end
